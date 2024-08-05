@@ -1,9 +1,10 @@
-﻿using ScreenSound.Moodelos;
+﻿using ScreenSound.Modelos;
+using ScreenSound.Moodelos;
 
 Banda grandMasterFlash = new Banda("Grand Master Flash");
-grandMasterFlash.AdicionarNota(10);
-grandMasterFlash.AdicionarNota(8);
-grandMasterFlash.AdicionarNota(9);
+grandMasterFlash.AdicionarNota(new Avaliacao(10));
+grandMasterFlash.AdicionarNota(new Avaliacao(8));
+grandMasterFlash.AdicionarNota(new Avaliacao(6));
 Banda wuThanClan = new("Wu Than Clan");
 
 Dictionary<string, Banda> bandasRegistradas = new();
@@ -140,9 +141,9 @@ void AvaliarUmaBanda()
     {
         Banda banda = bandasRegistradas[nomeDaBanda];
         Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
-        int nota = int.Parse(Console.ReadLine()!);
+        Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
         banda.AdicionarNota(nota);
-        Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+        Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nomeDaBanda}");
         Thread.Sleep(1000);
         Console.Clear();
         ExibirOpcoesDoMenu();
