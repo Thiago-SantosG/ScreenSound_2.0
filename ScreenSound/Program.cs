@@ -2,22 +2,27 @@
 using ScreenSound.Modelos;
 using ScreenSound.Moodelos;
 
-Banda grandMasterFlash = new Banda("Grand Master Flash");
+Banda grandMasterFlash = new("Grand Master Flash");
 grandMasterFlash.AdicionarNota(new Avaliacao(10));
 grandMasterFlash.AdicionarNota(new Avaliacao(8));
 grandMasterFlash.AdicionarNota(new Avaliacao(6));
 Banda wuThanClan = new("Wu Than Clan");
+Banda racionais = new("Racionais Mcs");
+Banda nwa = new("NWA");
 
 Dictionary<string, Banda> bandasRegistradas = new();
 bandasRegistradas.Add(grandMasterFlash.Nome, grandMasterFlash);
 bandasRegistradas.Add(wuThanClan.Nome, wuThanClan);
+bandasRegistradas.Add(racionais.Nome, racionais);
+bandasRegistradas.Add(nwa.Nome, nwa);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new RegistrarBanda());
 opcoes.Add(2, new RegistrarAlbum());
 opcoes.Add(3, new BandasRegistradas());
 opcoes.Add(4, new AvaliarBanda());
-opcoes.Add(5, new ExibirDetalhes());
+opcoes.Add(5, new AvaliarAlbum());
+opcoes.Add(6, new ExibirDetalhes());
 opcoes.Add(-1, new Sair());
 
 void ExibirLogo()
@@ -41,7 +46,8 @@ void ExibirOpcoesDoMenu()
     Console.WriteLine("Digite 2 para registrar o álbum de uma banda");
     Console.WriteLine("Digite 3 para mostrar todas as bandas");
     Console.WriteLine("Digite 4 para avaliar uma banda");
-    Console.WriteLine("Digite 5 para exibir os detalhes de uma banda");
+    Console.WriteLine("Digite 5 para avaliar um album");
+    Console.WriteLine("Digite 6 para exibir os detalhes de uma banda");
     Console.WriteLine("Digite -1 para sair");
 
     Console.Write("\nDigite a sua opção: ");
